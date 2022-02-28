@@ -1,0 +1,8 @@
+dev.bat
+/build
+/.git
+/.vs
+/.vscode
+*.swp
+*.~
+/obj
