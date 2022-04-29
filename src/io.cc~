@@ -1,0 +1,23 @@
+//opendev script accessable functions
+//io.cc
+
+#include <iostream>
+#include <string>
+#include <io.h>
+#include <fstream>
+
+using namespace cmd;
+
+void echo(const char* str){
+  std::cout << str << '\n';
+}
+
+void echo(const char* str, const char* color){
+  std::cout << color << str << WHITE << '\n';
+}
+
+void help(){
+  echo(HELP);
+}
+
+

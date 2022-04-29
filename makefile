@@ -1,22 +1,22 @@
 INCLDIR := include
 BINDIR := bin
-CXX := g++
+GCC := g++
 CPPFLAGS := -Iinclude -MMD -MP
 OBJDIR := obj
 SRCDIR := src
 #if target platform is windows, else: change the Target to devenv
 TARGET =$(BINDIR)/devenv.exe
-SRC := $(wildcard $(SRCDIR)/*.cpp)
-OBJFILES := $(patsubst src/%.cpp,obj/%.o,$(SRC))
+SRC := $(wildcard $(SRCDIR)/*.cc)
+OBJFILES := $(patsubst src/%.cc,obj/%.o,$(SRC))
 all: $(TARGET)
 
 .PHONY: all clean
 
 $(TARGET): $(OBJFILES)
-	$(CXX) $(CPPFLAGS) -o $@ $^
+	$(GCC) $(CPPFLAGS) -o $@ $^
 
 $(OBJFILES): $(OBJDIR) | $(BINDIR)
-	$(CXX) -Wall -v $(CPPFLAGS) -c $(SRC)
+	$(GCC) -Wall -v $(CPPFLAGS) -c $(SRC)
 	move *.o obj/
 	move *.d obj/
 
