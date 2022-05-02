@@ -25,10 +25,10 @@ namespace cmd{
   //void blacklist(const char* filename);
   void addf(const char* filename);
 //void open(const char* filename);
-  void newddir(const char* name);
+  void newdir(const char* name);
   void adddir(const char* name);
   void clear();
-  int  quit();
+  void quit();
 };
 
 #endif //IO_H

@@ -1,6 +1,0 @@
-#include <io.h>
-
-int main(int argc,char** argv){
-    printf(PROMPT,"%d");
-    return 0;    
-}
