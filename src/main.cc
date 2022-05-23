@@ -1,6 +1,7 @@
 #include <io.h>
 
 int main(int argc,char** argv){
-  std::cout << PROMPT << '\n';
+  cmd::echo(PROMPT,RED);
+  cmd::echo('\n');
   return 0;    
 }
