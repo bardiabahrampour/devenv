@@ -65,7 +65,6 @@ void addf(const char* filename){
   creates a new directory on the disk
   WARNING! : does NOT add the directory to the whitelist
              since there are no files
-	     ps: portability issues
  */
 void newdir(const char* name){
   std::filesystem::current_path(std::filesystem::temp_directory_path());
@@ -90,23 +89,8 @@ void clear(){
 }
 
 /*
-  TODO: complete this function
+  TO BE CONTINUED
  */
 void quit(){
   
-}
-
-/*
-  lists files in a tidy manner
- */
-const char* list_files(const char* dir){
-  std::string temp;
-  for(const auto& current_file : std::filesystem::recursive_directory_iterator(dir)){
-    
-    temp += current_file;
-    temp.push_back('\n');
-    
-  }
-  
-  return temp;
 }
