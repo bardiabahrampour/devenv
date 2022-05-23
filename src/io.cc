@@ -7,6 +7,7 @@
 #include <fstream>
 #include <project.h>
 #include <algorithm>
+#include <filesystem>
 
 using namespace cmd;
 
@@ -51,4 +52,45 @@ void removef(const char* filename){
 					     g_project.files.end(),
 					     std::string(filename)));
   g_project.files.erase(g_project.files.begin() + search_index);
+}
+
+/*
+  add a an exsiting file to the whitelist
+ */
+void addf(const char* filename){
+  g_project.files.push_back(filename);
+}
+
+/*
+  creates a new directory on the disk
+  WARNING! : does NOT add the directory to the whitelist
+             since there are no files
+ */
+void newdir(const char* name){
+  std::filesystem::current_path(std::filesystem::temp_directory_path());
+  std::filesystem::create_directory(name);
+}
+
+/*
+  adds an existing directory to the whitelist
+ */
+void adddir(const char* name){
+  //iterate through every file in the said directory and add them to the whitelist
+  for(const auto& current_file : std::filesystem::recursive_directory_iterator(name)){
+    g_project.files.push_back(current_file);
+  }
+}
+
+/*
+  clears the console
+ */
+void clear(){
+  std::cout << CLEAR;
+}
+
+/*
+  TO BE CONTINUED
+ */
+void quit(){
+  
 }
