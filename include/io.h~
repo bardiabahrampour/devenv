@@ -21,8 +21,8 @@ namespace cmd{
   void echo(const char* str);
   void help();
   void newf(const char* filename);
-  void removef(const char* filename);
-  //void blacklist(const char* filename);
+  void deletef(const char* filename);
+  void blacklist(const char* filename);
   void addf(const char* filename);
 //void open(const char* filename);
   void newddir(const char* name);
