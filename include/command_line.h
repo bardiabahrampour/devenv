@@ -1,6 +1,6 @@
 #pragma once
 #include <io.h>
-#include <3rdparty/chaiscript/chaiscript.hpp>
+
 
 class Shell{
   chaiscript::ChaiScript input_command;

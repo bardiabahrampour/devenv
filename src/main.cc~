@@ -1,6 +1,7 @@
 #include <io.h>
 
 int main(int argc,char** argv){
-    printf(PROMPT,"%d");
-    return 0;    
+  cmd::echo(PROMPT,RED);
+  cmd::echo('\n');
+  return 0;    
 }

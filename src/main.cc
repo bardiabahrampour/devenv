@@ -2,6 +2,6 @@
 
 int main(int argc,char** argv){
   cmd::echo(PROMPT,RED);
-  cmd::echo('\n');
+  cmd::echo("\n");
   return 0;    
 }

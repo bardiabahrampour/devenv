@@ -4,9 +4,9 @@
 #include <string>
 //define project properties and values
 
-struct Project{
-    std::string name;
-    std::vector<std::string> files,blacklist;
-};
+struct{
+  std::string name;
+  std::vector<std::string> files/*,blacklist*/;
+}g_project;
 
 #endif //PROJECT_H

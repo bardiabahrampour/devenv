@@ -4,9 +4,32 @@
 #include <string>
 //define project properties and values
 
+enum class Language{
+  Cpp,
+  C,
+  Csharp,
+  Objective-C,
+  Asm,
+  Python,
+  Ruby,
+  Perl,
+  Java,
+  Javascript,
+  Kotlin,
+  Go,
+  //...
+};
+
+/*
+  Cureent working project properties,
+  NOTE: opendev can only work with
+  one project at runtime.
+ */
 struct{
   std::string name;
-  std::vector<std::string> files/*,blacklist*/;
+  std::vector<std::string> files;
+  int min_ver;
+  std::vector<Language> langs; //languages used.
 }g_project;
 
 #endif //PROJECT_H
