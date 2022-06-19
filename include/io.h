@@ -2,7 +2,7 @@
 
 #include <functional>
 typedef std::function<void(const std::string&)> _void_str 
-typedef std::function<void(void)> _void
+typedef std::function<void()> _void
 
 //colors for output text
 #define RED     "\x1b[31m"
@@ -23,16 +23,16 @@ typedef std::function<void(void)> _void
 
 
 namespace cmd{
-   void     echo(const char* str,const char* color);
-  _void_str echo(const char* str);
-  _void     help();
-  _void_str newf(const char* filename);
-  _void_str removef(const char* filename);
-  _void_str addf(const char* filename);
-  _void_str newdir(const char* name);
-  _void_str adddir(const char* name);
-  _void     clear();
-  _void     version();
-  _void_str list_files_dir(const char* dir);
-  _void_str list_files(const char* dir);
+  void  echo(const char* str,const char* color);
+  void  echo(const char* str);
+  void  help();
+  void  newf(const char* filename);
+  void  removef(const char* filename);
+  void  addf(const char* filename);
+  void  newdir(const char* name);
+  void  adddir(const char* name);
+  void  clear();
+  void  version();
+  void  list_files_dir(const char* dir);
+  void  list_files(const char* dir);
 };
