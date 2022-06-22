@@ -1,24 +1,14 @@
 #pragma once
-#include <string>
 #include <vector>
+#include <string>
 
-struct cpp{
-    void newHeader(std::string name);    
+#define CPP       ".cpp"
+#define CPLUSPLUS ".c++"
+#define CC        ".cc"
+#define CXX_      ".cxx"
+#define CP        ".cp"
 
-    void newClass(std::string name);
-
-    void newSource(std::string name);
-
-    void compile();
-
-    void link();
-
-    cpp();
-    ~cpp();
-private:
-    std::string name,include_dir,obj_dir;
-    std::vector<std::string> files,options;
-
-    void getOptions();
-    void newFile(std::string name, std::string file_template);
-};
+struct{
+  std::vector<std::string> files,options;
+  std::string include_dir = nullptr;
+}cpp_util_t;

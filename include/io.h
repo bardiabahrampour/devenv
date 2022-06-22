@@ -1,8 +1,9 @@
 #pragma once
-
+#include <string>
 #include <functional>
-typedef std::function<void(const std::string&)> _void_str 
-typedef std::function<void()> _void
+
+typedef std::function<void(const char*)> _void_str;
+typedef std::function<void()> _void;
 
 //colors for output text
 #define RED     "\x1b[31m"
@@ -17,13 +18,12 @@ typedef std::function<void()> _void
 //strings for output
 #define CLEAR   "\033[2J\033[1;1H"
 #define PROMPT  "(devenv) "
-#define HELP    "NOT COMPLETED YET\n"
-#define VERSION "OpenDev Pre-Alpha 0.0.1\n"
+#define HELP    "NOT COMPLETED YET"
+#define VERSION "OpenDev Pre-Alpha 0.0.1"
 
 
 
-namespace cmd{
-  void  echo(const char* str,const char* color);
+namespace cmd {
   void  echo(const char* str);
   void  help();
   void  newf(const char* filename);
@@ -35,4 +35,5 @@ namespace cmd{
   void  version();
   void  list_files_dir(const char* dir);
   void  list_files(const char* dir);
+  void  init(void);
 };

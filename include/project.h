@@ -8,7 +8,7 @@ enum class Language{
   Cpp,
   C,
   CSharp,
-  Objective-C,
+  ObjectiveC,
   Asm,
   Python,
   Ruby,

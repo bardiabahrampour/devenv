@@ -1,7 +1,7 @@
 INCLDIR := include
 BINDIR := bin
 GCC := g++
-CPPFLAGS := -Iinclude -MMD -MP -std=c++17
+CPPFLAGS := -Iinclude -MMD -MP -std=c++17 -lstdc++fs
 OBJDIR := obj
 SRCDIR := src
 #if target platform is windows, else: change the Target to devenv

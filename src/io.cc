@@ -3,35 +3,25 @@
 
 #include <iostream>
 #include <string>
-#include <io.h>
+#include "../include/io.h"
 #include <fstream>
-#include <project.h>
+#include "../include/project.h"
 #include <algorithm>
 #include <filesystem>
-
-using namespace cmd;
 
 /*
   print a string to the screen
  */
 void 
-echo(const char* str){
-  std::cout << str << '\n';
-}
-
-/*
-  color mode
- */
-void 
-echo(const char* str, const char* color){
-  std::cout << color << str << WHITE << '\n';
+cmd::echo(const char* str){
+  std::cout << WHITE << str << '\n';
 }
 
 /*
   help text
  */
 void 
-help(){
+cmd::help(){
   std::cout << HELP << '\n';
 }
 
@@ -40,7 +30,7 @@ help(){
   said file to the disk.
  */
 void 
-newf(const char* filename){
+cmd::newf(const char* filename){
   std::ofstream new_file(filename);
   new_file.close();
   g_project.files.push_back(filename);
@@ -51,7 +41,7 @@ newf(const char* filename){
   BUT does NOT delete the said file from the disk!
  */
 void 
-removef(const char* filename){
+cmd::removef(const char* filename){
   int search_index = std::distance(g_project.files.begin(),
 				   std::find(g_project.files.begin(),
 					     g_project.files.end(),
@@ -63,7 +53,7 @@ removef(const char* filename){
   add an exsiting file to the whitelist
  */
 void 
-addf(const char* filename){
+cmd::addf(const char* filename){
   g_project.files.push_back(filename);
 }
 
@@ -73,7 +63,7 @@ addf(const char* filename){
              since there are no files
  */
 void 
-newdir(const char* name){
+cmd::newdir(const char* name){
   std::filesystem::current_path(std::filesystem::temp_directory_path());
   std::filesystem::create_directory(name);
 }
@@ -82,7 +72,7 @@ newdir(const char* name){
   adds an existing directory to the whitelist
  */
 void 
-adddir(const char* name){
+cmd::adddir(const char* name){
   //iterate through every file in the said directory and add them to the whitelist
   for(const auto& current_file : std::filesystem::recursive_directory_iterator(name)){
     g_project.files.push_back(current_file);
@@ -93,25 +83,38 @@ adddir(const char* name){
   clears the console
  */
 void 
-clear(){
+cmd::clear(){
   std::cout << CLEAR;
 }
 
 void 
-version(){
+cmd::version(){
   std::cout << '\n' << VERSION << '\n';
 }
 
 void
-list_files_dir(const char* dir){
+cmd::list_files_dir(const char* dir){
   for(const auto& current_file : std::filesystem::recursive_directory_iterator(dir)){
     std::cout << current_file << "  ------  " << current_file.file_size() << '\n';
   }
 }
 
 void
-list_files(const char* dir){
+cmd::list_files(const char* dir){
   std::for_each(g_project.files.begin(), g_project.files.end(), [](const std::string& str){ std::cout << str << '\n'; });
+}
+
+void
+cmd::init(void){
+  const char* dir_name = ".dev";
+  std::filesystem::current_path(std::filesystem::temp_directory_path());
+  if(std::filesystem::exists(dir_name)){
+    std::cout << "\n" << RED << "Project already exists!\n" << WHITE;
+    return;
+  }
+  std::filesystem::create_directory(dir_name);
+  
+  
 }
 
 
